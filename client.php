@@ -37,7 +37,22 @@ if (!isset($_SESSION['email'])) {
 <!--===============================================================================================-->
 </head>
 
-<body>	
+<body>
+    
+    <script>
+        function alertpass()
+        {
+            var r=confirm("Você tem certeza em mudar a senha?");
+            if (r==true){
+                window.location = 'index.html';
+            }
+            else
+            {
+                window.location = 'client.php';
+            }
+        }
+    </script>
+
     <div class="limiter">
         <div class="container-login100">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -55,11 +70,32 @@ if (!isset($_SESSION['email'])) {
                     <img src="images/img-01.png" alt="IMG">
                 </div>
                 
-                <div class="login100-pic">
-                    <button class="login100-form-btn">
-                        Trocar Senha
-                    </button>
-                </div>
+                <form method="post" class="login100-form validate-form">
+					<fieldset>
+
+					<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório">
+						<input class="input100" type="text" name="key" placeholder="Senha">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório">
+						<input class="input100" type="password" name="keyagain" placeholder="Senha novamente">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div onclick="alertpass()" class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Trocar Senha
+						</button>
+					</div>
+					</fieldset>
+				</form>
             </div>
             <a id="logout" href="logout.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">SAIR</a>
         </div>
