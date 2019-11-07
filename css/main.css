@@ -115,7 +115,8 @@ textarea:-ms-input-placeholder { color: #999999; }
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+  background: transparent;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -146,6 +147,13 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
+
+#logout {
+  margin-top: 15px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 10px;
+}
 
 .limiter {
   width: 100%;
@@ -222,7 +230,7 @@ iframe {
   position: relative;
   width: 100%;
   z-index: 1;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .input100 {
@@ -319,6 +327,7 @@ iframe {
 }
 
 .login100-form-btn {
+  text-align: center;
   font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
@@ -374,8 +383,12 @@ iframe {
     padding: 100px 80px 33px 80px;
   }
 
-  .login100-pic {
+  .login100-pic img{
     display: none;
+  }
+
+  .login100-pic{
+    text-align: center;
   }
 
   .login100-form {
