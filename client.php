@@ -1,18 +1,16 @@
 <?php
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) session_start();
+
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['email'])) {
+    // Destrói a sessão por segurança
+    session_destroy();
     
-  // A sessão precisa ser iniciada em cada página diferente
-  if (!isset($_SESSION)) session_start();
-    
-  // Verifica se não há a variável da sessão que identifica o usuário
-  if (!isset($_SESSION['email'])) {
-      // Destrói a sessão por segurança
-      session_destroy();
-      
-      // Redireciona o visitante de volta pro login
-      header("Location: index.html");
-      exit;
-  }
-    
+    // Redireciona o visitante de volta pro login
+    header("Location: index.html");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,38 +40,28 @@
 <body>	
     <div class="limiter">
         <div class="container-login100">
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="alert-heading">Login realizado com Sucesso, <?php echo $_SESSION['login']; ?>!</h4>
-                <p>Nessa págica você terá total administração nos seus clientes.</p>
+                <p>Nessa págica você terá a opção de alterar a sua senha.</p>
                 <hr>
-                <p class="mb-0">Cuidados com os procedimentos que podem ser realizados</p>
+                <p class="mb-0">Seu nível de acesso é de usuario. Para outros procedimentos falar com a TI da sua empresa.</p>
             </div>
 
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="images/img-01.png" alt="IMG">
                 </div>
-
-                <div class="login100-form">
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Opção 1
-                        </button>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Opção 2
-                        </button>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Opção 3
-                        </button>
-                    </div>
+                
+                <div class="login100-pic">
+                    <button class="login100-form-btn">
+                        Trocar Senha
+                    </button>
                 </div>
             </div>
+            <a id="logout" href="logout.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">SAIR</a>
         </div>
     </div>
     

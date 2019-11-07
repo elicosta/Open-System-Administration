@@ -4,7 +4,7 @@
 if (!isset($_SESSION)) session_start();
     
 // Verifica se não há a variável da sessão que identifica o usuário
-if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
+if (!isset($_SESSION['email']) OR $_SESSION['root'] != 'r') {
     // Destrói a sessão por segurança
     session_destroy();
       

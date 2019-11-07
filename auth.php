@@ -15,7 +15,11 @@ $usuario = mysql_real_escape_string($_POST['user']);
 $senha = mysql_real_escape_string($_POST['pass']);
 
 // Validação do usuário/senha digitados
-$sql = "SELECT * FROM ftpusers WHERE (email = '$usuario') AND (senha = '$senha') LIMIT 1";
+if($_POST['user'] == "root"){
+	$sql = "SELECT * FROM ftpusers WHERE (login = '$usuario') AND (senha = '$senha') AND (root = 'r') LIMIT 1";
+} else{
+	$sql = "SELECT * FROM ftpusers WHERE (email = '$usuario') AND (senha = '$senha') LIMIT 1";
+}
 
 $query = mysql_query($sql);
 
@@ -36,8 +40,11 @@ if (mysql_num_rows($query) != 1) {
 	exit;
 } else {
 	
-	if ($_SESSION['ativo'] == 's'){
+	if ($_SESSION['root'] == 'r'){
 		//Carrega a pagina de root
+		header("Location: root.php"); exit;
+	}elseif ($_SESSION['root'] == 's'){
+		//Carrega a pagina de adm do domínio
 		header("Location: adm.php"); exit;
 	}
 	else{
