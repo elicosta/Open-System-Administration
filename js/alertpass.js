@@ -13,7 +13,8 @@ function alertpass()
     }
     else{
         if (confirm("Você tem certeza em mudar a senha?")){
-            window.location.replace("changekey.php")
+            var form = document.getElementById("form");
+            form.submit();
         }
         else{
             window.location.replace("index.html")
