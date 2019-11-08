@@ -38,21 +38,6 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body>
-    
-    <script>
-        function alertpass()
-        {
-            var r=confirm("Você tem certeza em mudar a senha?");
-            if (r==true){
-                window.location = 'index.html';
-            }
-            else
-            {
-                window.location = 'client.php';
-            }
-        }
-    </script>
-
     <div class="limiter">
         <div class="container-login100">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -66,33 +51,39 @@ if (!isset($_SESSION['email'])) {
             </div>
 
             <div class="wrap-login100">
-                <div class="login100-pic js-tilt" data-tilt>
+                <div class="login100-pic">
                     <img src="images/img-01.png" alt="IMG">
                 </div>
                 
-                <form method="post" class="login100-form validate-form">
+                <form name="form" method="post" class="login100-form validate-form">
 					<fieldset>
 
-					<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório">
-						<input class="input100" type="text" name="key" placeholder="Senha">
+                    <div class="wrap-input100" >
+						<input class="input100" type="password" name="keynow" placeholder="Senha Atual">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório">
-						<input class="input100" type="password" name="keyagain" placeholder="Senha novamente">
+					<div class="wrap-input100" >
+						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="password" name="keyagain" placeholder="Confirmar senha">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					
-					<div onclick="alertpass()" class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Trocar Senha
-						</button>
+					<div class="container-login100-form-btn">
+						<input type="button" class="login100-form-btn" value="Trocar Senha" onclick="alertpass()">
 					</div>
 					</fieldset>
 				</form>
@@ -109,14 +100,8 @@ if (!isset($_SESSION['email'])) {
 <!--===============================================================================================-->
     <script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script >
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
-<!--===============================================================================================-->
     <script src="js/main.js"></script>
-
+<!--===============================================================================================-->
+    <script src="js/alertpass.js"></script>
 </body>
 </html>
