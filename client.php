@@ -55,7 +55,7 @@ if (!isset($_SESSION['email'])) {
                     <img src="images/img-01.png" alt="IMG">
                 </div>
                 
-                <form name="form" method="post" class="login100-form validate-form">
+                <form action="changekey.php" id="form" method="post" class="login100-form validate-form">
 					<fieldset>
 
                     <div class="wrap-input100" >

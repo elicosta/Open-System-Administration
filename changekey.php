@@ -33,13 +33,17 @@ mysql_close();
 if (mysql_num_rows($query) != 1) {
     // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
 	echo "<script language='javascript'>
-		alert('ERROR');
+        alert('ERROR');
+        window.location = 'index.html';
         </script>";
+    session_destroy();
     exit;
 } else {
     echo "<script language='javascript'>
-		alert('SUCESS');
-		</script>";
+        alert('SUCESS');
+        window.location = 'index.html';
+        </script>";
+    session_destroy();
 	exit;
 }
 ?>
