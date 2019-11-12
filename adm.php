@@ -62,72 +62,104 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
                 <form action="client.php" method="post" class="login100-form">
 					<fieldset>
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Domínio">
+						<input class="input100" type="text" name="user" placeholder="E-mail">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
 					
 					<button class="login100-form-btn container-login100-form-btn">
-							Criar Domínio
+							Criar E-mail
 					</button>
 					
 					</fieldset>
                 </form>
                 
-                <form action="auth.php" method="post" class="login100-form validate-form">
+                <form action="client.php" method="post" class="login100-form">
 					<fieldset>
-
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Dominio">
+						<input class="input100" type="text" name="user" placeholder="E-mail">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
 					
-					
 					<button class="login100-form-btn container-login100-form-btn">
-							Autenticar
+							Excluir E-mail
 					</button>
 					
 					</fieldset>
                 </form>
-                
-                <form action="auth.php" method="post" class="login100-form validate-form">
+
+                <!-- Senha do adm -->
+
+                <form action="client.php" method="post" class="login100-form">
 					<fieldset>
 
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Dominio">
+                    <div class="wrap-input100" >
+						<input class="input100" type="password" name="keynow" placeholder="Senha Atual">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100" >
+						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="password" name="keyagain" placeholder="Confirmar senha">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<input type="button" class="login100-form-btn" value="Trocar Senha" onclick="alertpass()">
+					</div>
+					</fieldset>
+				</form>
+
+                <!-- Senha do cliente do mesmo dominio -->
+
+                <form action="client.php" method="post" class="login100-form">
+					<fieldset>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="user" placeholder="E-mail">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
-					
-					
-					<button class="login100-form-btn container-login100-form-btn">
-							Autenticar
-					</button>
-					
-					</fieldset>
-                </form>
 
-                <form action="auth.php" method="post" class="login100-form validate-form">
-					<fieldset>
-
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Dominio">
+					<div class="wrap-input100" >
+						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="password" name="keyagain" placeholder="Confirmar senha">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					
-					
-					<button class="login100-form-btn container-login100-form-btn">
-							Autenticar
-					</button>
-					
+					<div class="container-login100-form-btn">
+						<input type="button" class="login100-form-btn" value="Trocar Senha do usuário" onclick="alertpass()">
+					</div>
 					</fieldset>
-                </form>
+				</form>
+
             </div>
             <a id="logout" href="logout.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">SAIR</a>
         </div>
