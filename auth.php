@@ -23,13 +23,13 @@ if($_POST['user'] == "root"){
 
 $query = mysql_query($sql);
 
-//Fecha conexão com MySQL
-mysql_close();
-
 // Função que carregar página com as credenciais de root
 if (!isset($_SESSION)) session_start();
 
 $_SESSION = mysql_fetch_assoc($query);
+
+//Fecha conexão com MySQL
+mysql_close();
 
 if (mysql_num_rows($query) != 1) {
     // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado

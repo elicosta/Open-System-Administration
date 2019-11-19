@@ -24,7 +24,7 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ROOT</title>
+    <title>ADM</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -59,10 +59,10 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
             </div>
 
             <div class="wrap-login100">
-                <form action="client.php" method="post" class="login100-form">
+                <form action="newclient.php" method="post" class="login100-form">
 					<fieldset>
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="E-mail">
+						<input class="input100" type="text" name="newclient" placeholder="Usuário">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
@@ -75,10 +75,10 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
 					</fieldset>
                 </form>
                 
-                <form action="client.php" method="post" class="login100-form">
+                <form action="deleteclient.php" method="post" class="login100-form">
 					<fieldset>
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="E-mail">
+						<input class="input100" type="text" name="removeclient" placeholder="Usuário">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
@@ -93,7 +93,7 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
 
                 <!-- Senha do adm -->
 
-                <form action="client.php" method="post" class="login100-form">
+                <form action="changekey.php" id="form" method="post" class="login100-form validate-form">
 					<fieldset>
 
                     <div class="wrap-input100" >
@@ -128,7 +128,7 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
 
                 <!-- Senha do cliente do mesmo dominio -->
 
-                <form action="client.php" method="post" class="login100-form">
+                <form action="changekey.php" id="adm" method="post" class="login100-form">
 					<fieldset>
 
                     <div class="wrap-input100 validate-input">
@@ -173,12 +173,7 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
 <!--===============================================================================================-->
     <script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script >
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
+	<script src="js/alertpass.js"></script>
 <!--===============================================================================================-->
     <script src="js/main.js"></script>
 

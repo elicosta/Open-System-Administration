@@ -48,6 +48,8 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 'r') {
 <body>	
     <div class="limiter">
         <div class="container-login100">
+
+			<!-- Aviso de login -->
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -57,47 +59,32 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 'r') {
                 <hr>
                 <p class="mb-0">Cuidados com os procedimentos que podem ser realizados</p>
             </div>
-
+			  
+			<!-- Div do painel principal -->
             <div class="wrap-login100">
-                <form action="client.php" method="post" class="login100-form">
+				<!-- Adciona domínios -->
+                <form action="newdomain.php" method="post" class="login100-form">
 					<fieldset>
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Domínio">
+						<input class="input100" type="text" name="domain" placeholder="Domínio">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
 					
 					<button class="login100-form-btn container-login100-form-btn">
-							Criar Domínio
+							Criar
 					</button>
 					
 					</fieldset>
-                </form>
-                
-                <form action="auth.php" method="post" class="login100-form validate-form">
+				</form>
+				
+                <!-- Remove domínios -->
+                <form action="removedomain.php" method="post" class="login100-form">
 					<fieldset>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Dominio">
-						<span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
-						</span>
-					</div>
-					
-					
-					<button class="login100-form-btn container-login100-form-btn">
-							Autenticar
-					</button>
-					
-					</fieldset>
-                </form>
-                
-                <form action="auth.php" method="post" class="login100-form validate-form">
-					<fieldset>
-
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Dominio">
+						<input class="input100" type="text" name="domain" placeholder="Domínio">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
@@ -105,29 +92,104 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 'r') {
 					
 					
 					<button class="login100-form-btn container-login100-form-btn">
-							Autenticar
+							Apagar
 					</button>
 					
 					</fieldset>
                 </form>
 
-                <form action="auth.php" method="post" class="login100-form validate-form">
+                <!-- Alterar senha de adm virtual -->
+                <form action="changekey.php" id="adm" method="post" class="login100-form">
 					<fieldset>
 
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="user" placeholder="Dominio">
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="user" placeholder="E-mail">
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
+
+					<div class="wrap-input100" >
+						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="password" name="keyagain" placeholder="Confirmar senha">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
 					
-					
-					<button class="login100-form-btn container-login100-form-btn">
-							Autenticar
-					</button>
-					
+					<div class="container-login100-form-btn">
+						<input type="button" class="login100-form-btn" value="Trocar Senha do usuário" onclick="alertpass()">
+					</div>
 					</fieldset>
-                </form>
+				</form>
+
+                <!-- Alterar senha do root -->
+
+                <form action="changekey.php" id="form" method="post" class="login100-form">
+					<fieldset>
+
+                    <div class="wrap-input100" >
+						<input class="input100" type="password" name="keynow" placeholder="Senha Atual">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100" >
+						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="password" name="keyagain" placeholder="Confirmar senha">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<input type="button" class="login100-form-btn" value="Trocar Senha" onclick="alertpass()">
+					</div>
+					</fieldset>
+				</form>
+
+				<!-- Botão para acionar modal -->
+				<div class="container-login100-form-btn">
+					<button type="button" class="login100-form-btn" data-toggle="modal" data-target="#modalExemplo">
+						Listar Domínios
+					</button>
+				</div>
+
+				<!-- Modal -->
+				<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Lista de domínios que estão no Banco de Dados</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<!-- Incluindo arquivo de consulta no BD -->
+							<?php include 'listdomains.php'; ?>
+						</div>
+					</div>
+				</div>
+			</div>
             </div>
             <a id="logout" href="logout.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">SAIR</a>
         </div>
@@ -141,12 +203,7 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 'r') {
 <!--===============================================================================================-->
     <script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script >
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
+    <script src="js/alertpass.js"></script>
 <!--===============================================================================================-->
     <script src="js/main.js"></script>
 
