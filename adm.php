@@ -100,12 +100,12 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
 						<input class="input100" type="password" name="keynow" placeholder="Senha Atual">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+							<i class="fa fa-unlock" aria-hidden="true"></i>
 						</span>
 					</div>
 
 					<div class="wrap-input100" >
-						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<input class="input100" type="password" name="keynew" placeholder="Senha nova">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -134,12 +134,12 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 's') {
                     <div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="user" placeholder="E-mail">
 						<span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
 					<div class="wrap-input100" >
-						<input class="input100" type="text" name="keynew" placeholder="Senha nova">
+						<input class="input100" type="password" name="keynew" placeholder="Senha nova">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>

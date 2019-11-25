@@ -51,7 +51,7 @@ else{
 
     $passuser = rand(1000,9999);
 
-    $sqluser = "INSERT INTO ftpusers (nome,login,senha,uid,gid,ativo,root,dir,shell,email) VALUES ('$user','$user','$passuser','12345','100','s','n','/home/ftpuser/','/bin/bash','$user@$domain[1]')";
+    $sqluser = "INSERT INTO ftpusers (nome,login,senha,uid,gid,ativo,root,dir,shell,email) VALUES ('$user','$user','$passuser','12345','100','n','n','/home/ftpuser/','/bin/bash','$user@$domain[1]')";
     //Criando usuário
     mysql_query($sqluser);
 

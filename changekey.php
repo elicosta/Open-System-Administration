@@ -70,7 +70,7 @@ if (mysql_num_rows($query) != 1) {
     alert('Erro na alteração da senha');
     window.location = 'index.html';
     </script>";
-    session_destroy();
+    //session_destroy();
     exit;
 } else {
     //Mensagem personalizada
