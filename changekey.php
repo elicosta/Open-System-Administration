@@ -58,8 +58,23 @@ else{
     session_destroy();
 }
 
+//Primeiro acesso
+
 mysql_query($sql);
 $query = mysql_query($sql1);
+
+//Primeiro acesso
+if(isset($_POST['user'])){
+    $sql2 = "UPDATE ftpusers SET firstkey = 'n' WHERE email = '$email'";
+    mysql_query($sql2);
+}elseif($senhaatual == $_SESSION['senha']){
+    $sql2 = "UPDATE ftpusers SET firstkey = 'n' WHERE email = '$login'";
+    mysql_query($sql2);
+}
+else{
+    //Termina a sessão caso senha atual tenha sido digitado errado
+    session_destroy();
+}
 
 //Fecha conexão com MySQL
 mysql_close();

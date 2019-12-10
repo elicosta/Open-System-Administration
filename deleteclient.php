@@ -42,9 +42,17 @@ if (mysql_num_rows($query) == 1) {
     mysql_free_result($query);
     
     $sqlremoveuser = "DELETE FROM ftpusers WHERE (email = '$user@$domain[1]')";
+
+    $sqlremoveusergroup = "DELETE FROM ftpgroups WHERE (members = '$user@$domain[1]')";
     
     //Removendo usuário
     mysql_query($sqlremoveuser);
+
+    //Removendo usuário no grupo FTP
+    mysql_query($sqlremoveusergroup);
+
+    //Restart BIND and Apache
+    exec('/var/www/html/adm/restart.o');
 
     echo "<script language='javascript'>
             alert('Cliente removido com sucesso!');
@@ -55,7 +63,7 @@ if (mysql_num_rows($query) == 1) {
 else{
     // Mensagem email não já existente
     echo "<script language='javascript'>
-    alert('Email já existe');
+    alert('Domínio não existe ou já foi apagado do sistema!');
     window.location = 'adm.php';
     </script>";
     exit;

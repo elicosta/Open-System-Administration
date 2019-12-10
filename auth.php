@@ -39,17 +39,24 @@ if (mysql_num_rows($query) != 1) {
 		</script>";
 	exit;
 } else {
-	
-	if ($_SESSION['root'] == 'r'){
-		//Carrega a pagina de root
-		header("Location: root.php"); exit;
-	}elseif ($_SESSION['root'] == 's'){
-		//Carrega a pagina de adm do domínio
-		header("Location: adm.php"); exit;
-	}
-	else{
-		//carega a pagina de cliente
-		header("Location: client.php"); exit;
+	if($_SESSION['firstkey'] == 's'){
+		//Carrega a pagina de primeiro acesso
+		header("Location: newkey.php");
+		exit;
+
+	}else{
+		if ($_SESSION['root'] == 'r'){
+			//Carrega a pagina de root
+			header("Location: root.php"); exit;
+		}elseif ($_SESSION['root'] == 's'){
+			//Carrega a pagina de adm do domínio
+			header("Location: adm.php"); exit;
+		}
+		else{
+			//carega a pagina de cliente
+			header("Location: client.php"); exit;
+		}
+
 	}
 }
 ?>

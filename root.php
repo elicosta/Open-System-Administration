@@ -11,13 +11,13 @@ if (!isset($_SESSION['email']) OR $_SESSION['root'] != 'r') {
     // Redireciona o visitante de volta pro login
     header("Location: index.html");
     exit;
-  }
+}
 
-  // Tenta se conectar ao servidor MySQL
-  mysql_connect('localhost', 'mail_admin', 'mail_admin_password') or trigger_error(mysql_error());
+// Tenta se conectar ao servidor MySQL
+mysql_connect('localhost', 'mail_admin', 'mail_admin_password') or trigger_error(mysql_error());
 
-  // Tenta se conectar a um banco de dados MySQL
-  mysql_select_db('ASA') or trigger_error(mysql_error());
+// Tenta se conectar a um banco de dados MySQL
+mysql_select_db('ASA') or trigger_error(mysql_error());
 
 ?>
 
